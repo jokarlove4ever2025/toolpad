@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   Button,
   IconButton,
+  IconButtonProps,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -101,7 +102,12 @@ export default function OpenCodeEditorButton({
     <React.Fragment>
       {iconButton ? (
         <Tooltip title="Open in code editor">
-          <IconButton disabled={disabled || busy} size="small" onClick={handleClick} {...rest}>
+          <IconButton
+            disabled={disabled || busy}
+            size="small"
+            onClick={handleClick}
+            {...(rest as IconButtonProps)}
+          >
             {busy ? (
               <CircularProgress color="inherit" size={16} />
             ) : (
